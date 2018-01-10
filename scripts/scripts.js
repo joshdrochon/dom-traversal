@@ -1,53 +1,41 @@
-$(function(){
+$(document).ready(function(){
 
-  $(".clickable").click(function(){
-    $("#initially-showing").fadeToggle();
-    $("#initially-hidden").fadeToggle();
+    $("button#hello").click(function(){
+      $("ul#user").prepend("<li>Hello!</li>");
+      $("ul#web-page").prepend("<li>Hey, how are you?</li>");
+      $("ul#user").children("li").first().click(function(){
+        $(this).remove();
+      });
+
+      $("ul#web-page").children("li").first().click(function(){
+        $(this).remove();
+      });
+    });
+
+  $("button#goodbye").click(function(){
+    $("ul#user").prepend("<li>Goodbye</li>");
+    $("ul#web-page").prepend("<li>See ya!</li>");
+    $("ul#user").children("li").first().click(function(){
+      $(this).remove();
+    });
+
+    $("ul#web-page").children("li").first().click(function(){
+      $(this).remove();
+    });
   });
 
-  $(".expand").click(function(){
-    $(".expanded-text").fadeToggle();
-  });
+  $("button#stop").click(function(){
+    $("ul#user").prepend("<li>Hey, stop bugging me!</li>");
+    $("ul#web-page").prepend("<li>Sure thing, partner</li>");
+    $("ul#user").children("li").first().click(function(){
+      $(this).remove();
+    });
 
-  //add button functionality
-
-  $(function(){
-    $("button#green").click(function(){
-
-      $("body").removeClass();
-      $("body").addClass("green-background");
-
-    })
-  })
-
-  $(function(){
-    $("button#yellow").click(function(){
-      $("body").removeClass();
-      $("body").addClass("yellow-background");
-    })
-  })
-
-  $(function(){
-    $("button#red").click(function(){
-      $("body").removeClass();
-      $("body").addClass("red-background");
-    })
-  })
-
+    $("ul#web-page").children("li").first().click(function(){
+      $(this).remove();
+    });
   });
 
 
 
-
-/*
-
-('.cat').hover(
-  function () {
-    $(this).show();
-  },
-  function () {
-    $(this).hide();
-  }
-);
-
-*/
+});
